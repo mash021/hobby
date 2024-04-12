@@ -40,3 +40,29 @@ def play_note():
     stream.close()
     p.terminate()
 
+# ایجاد رابط گرافیکی Create GUI
+root = tk.Tk()
+root.title("Synthesizer")
+
+note_frequency_label = tk.Label(root, text="Frequency (Hz):")
+note_frequency_label.pack()
+note_frequency = tk.Entry(root)
+note_frequency.pack()
+
+note_duration_label = tk.Label(root, text="Duration (seconds):")
+note_duration_label.pack()
+note_duration = tk.Entry(root)
+note_duration.pack()
+
+wave_type_var = tk.StringVar(root)
+wave_type_var.set("sine")  # پیش‌فرض موج سینوسی
+wave_type_menu = tk.OptionMenu(root, wave_type_var, "sine", "triangle", "square")
+wave_type_menu.pack()
+
+play_button = tk.Button(root, text="Play Note", command=play_note)
+play_button.pack()
+
+# نمایش GUI
+root.mainloop()
+
+
